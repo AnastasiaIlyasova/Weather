@@ -1,0 +1,33 @@
+input::-webkit-input-placeholder { color: white; }
+input::-moz-placeholder { color: white; }
+body{
+	background-image: url('../img/main.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.container{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.window{
+	background-color: rgba(255, 255, 255, 0.7);
+	width: 40%;
+	height: 40%;
+	border-radius: 55px;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+}
+.search{
+	background: rgba(0, 0, 0, 0.3);
+	width: 83%;
+	height: 22%;
+	margin: 2vw 3vw;
+	border-radius: 55px;
+	border: none;
+	color: white;
+	font-size: 1.7rem;
+	font-weight: 400;
+	padding: 0px 13px;
+}
