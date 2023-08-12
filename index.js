@@ -2,7 +2,6 @@
 const apiKey = '825dcc91205501c25f7a9e1bfb75bdc2'
 let city = ''
 const success = (position) =>{
-
     var url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address";
     var token = "e0ba6e9da8d4cb49f5c26c926aab890a2079c360";
     var query = {lat: position.coords.latitude, lon: position.coords.longitude};
@@ -35,13 +34,10 @@ const success = (position) =>{
 
     function addInfo(data){
         document.querySelector('.user__city').textContent = ''
-        //добавляем название города
         document.querySelector('.weather__city').textContent = data.name;
         //data.main.temp содержит значение в Кельвинах, отнимаем от  273, чтобы получить значение в градусах Цельсия
         document.querySelector('.weather__forecast').innerHTML = Math.round(data.main.temp - 273) + '&deg;' + 'C';
-        //Добавляем описание погоды
         document.querySelector('.weather__desc').textContent = data.weather[0]['description'];
-        //Добавляем иконку погоды
         document.querySelector('.weather__icon').innerHTML = `<img width="35" height="30" src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
         document.querySelector('.weather__wind').textContent = ` Wind speed: ${data.wind.speed} m/s`;
         document.querySelector('.weather__humidity').textContent = `Humidity: ${data.main.humidity}%`
@@ -50,7 +46,6 @@ const success = (position) =>{
     fetch(url, options)
         .then(response => response.json())
         .then(function (data) {
-            document.querySelector('.user__city').textContent = ` Your current city: ${data.suggestions[0].data.city}`;
  currentCity = data.suggestions[0].data.city
             console.log(data)})
         .then(function () {
@@ -59,7 +54,6 @@ const success = (position) =>{
             }).then(function (data) {
                 console.log(currentCity)
                 addInfo(data)
-                document.querySelector('.user__city').textContent = `Your current city: ${currentCity}`
                 changeBg(data)
 
                 function enter() {
@@ -73,7 +67,6 @@ const success = (position) =>{
 
                         let btnValue = document.getElementById("btn");
                         btnValue.addEventListener('click', getInput);
-
                         function getInput() {
                             city = document.getElementById('text').value.trim();
                             console.log(city);
@@ -81,12 +74,20 @@ const success = (position) =>{
                                 return resp.json()
                             }).then(function (data) {
                                 console.log(data)
+                                console.log(data.message)
+                                if(data.message==='city not found'){
+                                    document.querySelector('.weather__humidity').textContent = '';
+                                    document.querySelector('.weather__wind').textContent = '';
+                                    document.querySelector('.weather__icon').textContent = '';
+                                    document.querySelector('.weather__desc').textContent = '';
+                                    document.querySelector('.weather__forecast').textContent = 'City not found';
+                                }
                                 addInfo(data)
                                 changeBg(data)
                             })
                         }
                     })
-                    .catch(error => console.log("error", error));
+                    .catch(error => console.log(error));
         })
   }
 const error = () =>{

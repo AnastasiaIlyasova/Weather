@@ -52,37 +52,39 @@ body{
 .search{
 	background: rgba(0, 0, 0, 0.2);
 	width: 86%;
-	height: 22%;
-	margin: 2vw 3vw;
+	height: 80px;
+	position: absolute;
 	border-radius: 55px;
 	border: none;
 	color: white;
 	font-size: 2rem;
 	padding: 22px 13px;
-	margin-bottom: 25px;
-
+	top: 20px;
+	left: 8%;
 }
 .search--box{
 	position: relative;
 }
 .search-btn{
 	position: absolute;
-	top: 32%;
-	left: 83%;
+	top: 30px;
+	right: 55px;
 	background-color: white;
 	padding: 14px 15px;
 	border-radius: 90%;
 	float: right;
+	cursor: pointer;
 }
 .text__no__permission{
 	color: rgba(5, 5, 5, 0.98);
 	text-align: center;
 	font-size: 20px;
 	font-weight: 600;
-	margin-top: 95px;
+	margin-top: 155px;
 	display: none;
 }
 .weather__city{
+	margin-top: 110px;
 	color: rgba(0, 0, 0, 0.98);
 	font-size: 40px;
 	font-weight: 600;
@@ -108,10 +110,7 @@ body{
 	body{
 		background-size: auto;
 	}
-	.search-btn{
-		top: 28%;
-		left: 82%;
-	}
+
 }
 @media(max-width: 1024px) {
 .flex{
@@ -120,10 +119,7 @@ body{
 	.pd{
 		padding-left: 0;
 	}
-	.search-btn{
-		top: 24%;
-		left: 74%;
-	}
+
 	.window{
 		text-align: center;
 	}
@@ -133,8 +129,7 @@ body{
 		padding: 0 10px;
 	}
 	.search-btn{
-		top: 23%;
-		left: 83%;
+
 		padding: 10px 11px;
 	}
 	.window{
@@ -152,10 +147,7 @@ body{
 	}
 }
 @media (max-width: 425px) {
-	.search-btn{
-		top: 19%;
-		left: 70%;
-	}
+
 }
 @media(max-height: 569px) {
 .window{
