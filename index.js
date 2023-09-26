@@ -33,7 +33,7 @@ const success = (position) =>{
     }
 
     function addInfo(data){
-        document.querySelector('.user__city').textContent = ''
+       // document.querySelector('.user__city').textContent = ''
         document.querySelector('.weather__city').textContent = data.name;
         //data.main.temp содержит значение в Кельвинах, отнимаем от  273, чтобы получить значение в градусах Цельсия
         document.querySelector('.weather__forecast').innerHTML = Math.round(data.main.temp - 273) + '&deg;' + 'C';
